@@ -63,8 +63,6 @@ export const Full_ROUTES: Routes = [
     {
          path : 'students',
         loadChildren : () => import('../../Lists/students/students.module').then(m => m.StudentsModule)
-
-
     }
 
     

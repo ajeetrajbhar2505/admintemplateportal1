@@ -114,7 +114,6 @@ export const ROUTES: RouteInfo[] = [
             { path: '/datatable/pinning', title: 'Pinning', icon: 'zmdi zmdi-dot-circle-alt', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] },
             { path: '/datatable/selection', title: 'Selection', icon: 'zmdi zmdi-dot-circle-alt', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] },
             { path: '/datatable/sorting', title: 'Sorting', icon: 'zmdi zmdi-dot-circle-alt', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] },
-            { path: '/datatable/student-lists', title: 'student-lists', icon: 'zmdi zmdi-dot-circle-alt', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] },
           ]
     },
     {
