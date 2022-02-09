@@ -35,8 +35,7 @@
               "angular2-text-mask",
               "ng2-validation",
               "date-fns"
-
-           ],
+            ],
             "outputPath": "dist/bulona-admin",
             "index": "src/index.html",
             "main": "src/main.ts",
@@ -166,6 +165,10 @@
           }
         }
       }
-    }},
-  "defaultProject": "bulona-admin"
+    }
+  },
+  "defaultProject": "bulona-admin",
+  "cli": {
+    "analytics": "b54a9b76-d6f1-4724-8dbd-ba8d6aff63c6"
+  }
 }

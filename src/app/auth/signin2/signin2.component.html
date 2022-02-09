@@ -2,66 +2,53 @@
 <div id="wrapper">
 	<div class="height-100v d-flex align-items-center justify-content-center">
 		<div class="card-authentication2 mx-auto my-5">
-			<div class="card-group">
-				<div class="card mb-0">
+			<div class="card-group mygroup">
+				<div class="card mb-0 none">
 					<div class="bg-signin2"></div>
-					<div class="card-img-overlay rounded-left my-5">
-						<h2 class="text-white">Lorem</h2>
-						<h1 class="text-white">Ipsum Dolor</h1>
-						<p class="card-text text-white pt-3">There are many variations of passages of Lorem Ipsum available, but the majority have suffered alteration in some form, by injected humour, or randomised words which don't look even slightly believable.</p>
-					</div>
 				</div>
 				<div class="card mb-0 ">
 					<div class="card-body">
 						<div class="card-content p-3">
 							<div class="text-center">
-								<img src="assets/images/logo-icon.png" alt="logo icon">
+								<img src="assets\img\logos\offee.png" alt="logo icon" width="130px">
 							</div>
 							<div class="card-title text-uppercase text-center py-3">Sign In</div>
-							<form (ngSubmit)="onSubmit()" #f="ngForm">
 								<div class="form-group">
 									<div class="position-relative has-icon-left">
-										<label for="exampleInputUsername" class="sr-only">Username</label>
-										<input type="text" id="exampleInputUsername" class="form-control" placeholder="Username" ngModel required>
+										<label for="InputUsername" class="sr-only">Username</label>
+										<input type="text" id="InputUsername" class="form-control no-border" placeholder="Username" [(ngModel)]="username" required>
 										<div class="form-control-position"> <i class="icon-user"></i>
 										</div>
 									</div>
 								</div>
 								<div class="form-group">
 									<div class="position-relative has-icon-left">
-										<label for="exampleInputPassword" class="sr-only">Password</label>
-										<input type="password" id="exampleInputPassword" class="form-control" placeholder="Password" ngModel required>
+										<label for="InputPassword" class="sr-only">Password</label>
+										<input type="password" id="InputPassword" class="form-control no-border" placeholder="Password" [(ngModel)]="password" required>
 										<div class="form-control-position"> <i class="icon-lock"></i>
 										</div>
 									</div>
 								</div>
-								<div class="form-row mr-0 ml-0">
-									<div class="form-group col-6">
-										<div class="icheck-material-primary">
-											<input type="checkbox" id="user-checkbox" checked="" />
-											<label for="user-checkbox">Remember me</label>
-										</div>
-									</div>
-									<div class="form-group col-6 text-right"> <a href="JavaScript:;" (click)="onResetpassword2()">Reset Password</a>
+								<div class="form-group">
+									<div class="position-relative has-icon-left">
+										<label for="Inputcollegecode" class="sr-only">College Code</label>
+										<input type="text" id="Inputcollegecode" class="form-control no-border" placeholder="College Code" [(ngModel)]="college_code" required>
+										<div class="form-control-position"> <i class="fa fa-graduation-cap"></i>
+										</div>	
 									</div>
 								</div>
-								<button type="button" class="btn btn-primary btn-block waves-effect waves-light">Sign In</button>
-								<div class="text-center pt-3">
-									<p>or Sign in with</p>
-									<div class="form-row mt-4">
-										<div class="form-group mb-0 col-6">
-											<button type="button" class="btn btn-primary btn-block"><i class="fa fa-facebook-square"></i> Facebook</button>
-										</div>
-										<div class="form-group mb-0 col-6 text-right">
-											<button type="button" class="btn btn-primary btn-block"><i class="fa fa-twitter-square"></i> Twitter</button>
-										</div>
-									</div>
-									<hr>
-									<p class="text-dark mb-0">Do not have an account? <a href="JavaScript:;" (click)="onSignup2()"> Sign Up here</a>
-									</p>
+								<button type="button" class="btn  btn-block offee-color" (click)="onSubmit()">Log In</button>
+								<div class="text-center pt-4">
+									<div class="form-control alert alert-danger" *ngIf="invalid == true">
+									{{message}}
+								 </div>
 								</div>
-							</form>
-						</div>
+								<div class="text-center" *ngIf="validating">
+									<div class="spinner-border" role="status">
+									  <span class="sr-only">Loading...</span>
+									</div>
+								 </div>	
+						</div>	
 					</div>
 				</div>
 			</div>

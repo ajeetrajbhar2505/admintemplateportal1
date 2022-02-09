@@ -1,0 +1,32 @@
+<!-- Breadcrumb-->
+<div class="row pt-2 pb-2">
+	<div class="col-sm-9">
+		<h4 class="page-title">Student Lists</h4>
+	</div>
+</div>
+<!-- End Breadcrumb-->
+<!-- Filter Datatable Options Starts -->
+<div class="row">
+	<div class="col-sm-12 mb-4">
+		<div class="card">
+			<div class="card-header text-uppercase">Student Table</div>
+			<div class="card-body">
+				<input type='text' class="form-control" placeholder='Type to filter the name column...' (keyup)='updateFilter($event)' />
+				<!-- <ngx-datatable #table class='bootstrap' [columns]="columns" [columnMode]="'force'" [headerHeight]="50" [footerHeight]="50" [rowHeight]="'auto'" (page)="pageNo" [limit]="15" [rows]='rows'></ngx-datatable> -->
+                <div class="pagination-div">
+                <div class="pagination">
+                   <span>&laquo;</span>
+                   <span (click)="ChangePageNo(1)">1</span>
+                   <span (click)="ChangePageNo(2)">2</span>
+                   <span (click)="ChangePageNo(3)">3</span>
+                   <span (click)="ChangePageNo(4)">4</span>
+                   <span (click)="ChangePageNo(5)">5</span>
+                   <span (click)="ChangePageNo(6)">6</span>
+                   <span >&raquo;</span>
+                  </div>
+                  </div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- Filter Datatable Options Ends -->

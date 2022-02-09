@@ -12,7 +12,7 @@ import { BlankComponent } from './blank/blank.component';
   declarations: [
     InvoiceComponent,
     UserProfileComponent,
-    BlankComponent
+    BlankComponent,
  ],
   imports: [
     CommonModule,

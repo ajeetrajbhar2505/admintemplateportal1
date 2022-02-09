@@ -1,8 +1,8 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
-import { HttpClientModule, HttpClient } from "@angular/common/http";
-
+import { HttpClientModule, HttpClient, HTTP_INTERCEPTORS } from "@angular/common/http";
+import { ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppRoutingModule } from './app-routing.module';
 import { SharedModule } from "./shared/shared.module";
@@ -19,6 +19,9 @@ import { UiSwitchModule } from 'ngx-ui-switch';
 import { PerfectScrollbarModule } from 'ngx-perfect-scrollbar';
 import { PERFECT_SCROLLBAR_CONFIG } from 'ngx-perfect-scrollbar';
 import { PerfectScrollbarConfigInterface } from 'ngx-perfect-scrollbar';
+import { NgxDatatableModule } from '@swimlane/ngx-datatable';
+import { TokenInterceptorService } from './token-interceptor.service';
+
 
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true,
@@ -45,11 +48,21 @@ import * as $ from 'jquery';
     ToastrModule.forRoot(),
     UiSwitchModule,
     AgmCoreModule.forRoot({apiKey: 'AIzaSyDKXKdHQdtqgPVl2HI2RnUa_1bjCxRCQo4'}),
-    PerfectScrollbarModule
+    PerfectScrollbarModule,
+    NgxDatatableModule,
+    ReactiveFormsModule,
+
+    
+    
   ],
   providers: [
-    { provide: PERFECT_SCROLLBAR_CONFIG, useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG }
+    { provide: PERFECT_SCROLLBAR_CONFIG, useValue: DEFAULT_PERFECT_SCROLLBAR_CONFIG ,},
+    NgxDatatableModule,
+   {provide:HTTP_INTERCEPTORS,useClass:TokenInterceptorService,multi:true},
+   
   ],
-  bootstrap: [AppComponent]
+  
+  bootstrap: [AppComponent],
+  
 })
 export class AppModule { }

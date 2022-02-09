@@ -1,0 +1,27 @@
+
+@media screen and (max-width: 600px) {
+    .none
+    {
+        display: none;
+    }
+    }
+.mygroup
+{
+    height: 500px !important;
+    box-shadow: none !important;
+}
+
+ input[type=text]:focus,input[type=password]:focus{
+border: none;
+border-color: #d9534f;
+outline: 0;
+-webkit-box-shadow: inset 1px 1px 1px #d9534f,1px 1px 8px #d9534f;
+box-shadow: inset 0px 0px 1px #d9534f, 0px 1px 8px #d9534f;
+ }
+
+ .alert-danger {
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+    color: white;
+ }

@@ -9,6 +9,7 @@ import { DTPagingComponent } from './paging/dt-paging.component';
 import { DTPinningComponent } from './pinning/dt-pinning.component';
 import { DTSelectionComponent } from './selection/dt-selection.component';
 import { DTSortingComponent } from './sorting/dt-sorting.component';
+import { StudentListsComponent } from './student-lists/student-lists.component';
 
 
 const routes: Routes = [
@@ -70,6 +71,13 @@ const routes: Routes = [
         component: DTSortingComponent,
         data: {
           title: 'Sorting Data Table'
+        }
+      },
+      {
+        path: 'student-lists',
+        component: StudentListsComponent,
+        data: {
+          title: 'Student Lists Table'
         }
       },
     ]

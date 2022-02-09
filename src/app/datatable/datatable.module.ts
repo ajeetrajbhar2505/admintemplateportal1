@@ -14,6 +14,7 @@ import { DTPagingComponent } from './paging/dt-paging.component';
 import { DTPinningComponent } from './pinning/dt-pinning.component';
 import { DTSelectionComponent } from './selection/dt-selection.component';
 import { DTSortingComponent } from './sorting/dt-sorting.component';
+import { StudentListsComponent } from './student-lists/student-lists.component';
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import { DTSortingComponent } from './sorting/dt-sorting.component';
     DTPagingComponent,
     DTPinningComponent,
     DTSelectionComponent,
-    DTSortingComponent
+    DTSortingComponent,
+    StudentListsComponent
   ],
   imports: [
     CommonModule,

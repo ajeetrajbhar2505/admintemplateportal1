@@ -58,5 +58,15 @@ export const Full_ROUTES: Routes = [
         path: 'pages',
         loadChildren: () => import('../../pages/full-pages/full-pages.module').then(m => m.FullPagesModule)
 
+    },
+
+    {
+         path : 'students',
+        loadChildren : () => import('../../Lists/students/students.module').then(m => m.StudentsModule)
+
+
     }
+
+    
+    
 ];
