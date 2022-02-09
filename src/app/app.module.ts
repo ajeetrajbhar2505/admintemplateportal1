@@ -7,7 +7,7 @@ import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
 import { AppRoutingModule } from './app-routing.module';
 import { SharedModule } from "./shared/shared.module";
 import { AgmCoreModule } from '@agm/core';
-
+import { StudentsModule } from '../app/Lists/students/students.module'
 import { AppComponent } from './app.component';
 import { ContentLayoutComponent } from "./layouts/content/content-layout.component";
 import { FullLayoutComponent } from "./layouts/full/full-layout.component";
@@ -51,6 +51,7 @@ import * as $ from 'jquery';
     PerfectScrollbarModule,
     NgxDatatableModule,
     ReactiveFormsModule,
+    StudentsModule
 
     
     
