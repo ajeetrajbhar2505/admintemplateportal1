@@ -136,6 +136,7 @@ export const ROUTES: RouteInfo[] = [
         path: '', title: 'Student-Lists', icon: 'zmdi zmdi-widgets', class: 'sub', badge: 'New', badgeClass: 'badge badge-success ml-auto', isExternalLink: false,
         submenu: [
             { path: '/students', title: 'Student Lists', icon: 'zmdi zmdi-dot-circle-alt', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] },
+            { path: '/add-students', title: 'Add Students', icon: 'zmdi zmdi-dot-circle-alt', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] },
         ]
     },
 

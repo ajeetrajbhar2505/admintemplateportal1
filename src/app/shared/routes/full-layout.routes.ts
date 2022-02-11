@@ -63,7 +63,11 @@ export const Full_ROUTES: Routes = [
     {
          path : 'students',
         loadChildren : () => import('../../Lists/students/students.module').then(m => m.StudentsModule)
-    }
+    },
+    {
+        path : 'add-students',
+       loadChildren : () => import('../../Lists/add-students/add-students-routing.module').then(m => m.AddStudentsRoutingModule)
+   }
 
     
     

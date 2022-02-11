@@ -13,16 +13,22 @@ const data: any = require('../../shared/data/company.json');
 })
 export class StudentsComponent  {
   temp = [];
-  totalStudentCount = []  
+  totalStudentCount:any
+  ShowStudentcounts:any = [1,2,3,4,5,6]
   stdData = []
   snackbar:any
   pageNo:any = 2
- 
+  currentpage:number
+  active:any
 
   ChangePageNo(pageNo:any)
   {
+    
     this.pageNo = pageNo
     this.getStudents()
+    this.currentpage = this.pageNo
+    console.log('PageNo' , this.pageNo);
+    
   }
   // Table Column Titles
   columns = [
@@ -37,6 +43,58 @@ export class StudentsComponent  {
 
   constructor(public http:ServiceService) {
       this.getStudents()
+  }
+
+  
+
+  previous()
+  {
+    console.log(this.pageNo);
+    
+   if (this.pageNo !== 6) {
+    this.currentpage = this.pageNo - 1
+    this.pageNo = this.currentpage
+      this.getStudents()
+    console.log('PageNo' , this.pageNo);
+    if(this.pageNo < 6){
+      return  
+    }
+    else
+    {
+      for (let i = 0; i < this.ShowStudentcounts.length; i++) {
+        this.ShowStudentcounts = []
+         this.ShowStudentcounts.push(this.pageNo - i++)
+         this.ShowStudentcounts.push(this.pageNo - i++)
+         this.ShowStudentcounts.push(this.pageNo - i++)
+         this.ShowStudentcounts.push(this.pageNo - i++)
+         this.ShowStudentcounts.push(this.pageNo - i++)
+         this.ShowStudentcounts.push(this.pageNo - i++)
+      }
+    }
+
+   }
+   else
+   {
+     return;
+   }
+  }
+
+  next()
+  {
+    console.log(this.pageNo);
+      this.currentpage = this.pageNo + 1
+      this.pageNo = this.currentpage
+        this.getStudents()
+      console.log('PageNo' , this.pageNo);
+      for (let i = 0; i < this.ShowStudentcounts.length; i++) { 
+        this.ShowStudentcounts = []
+         this.ShowStudentcounts.push(this.pageNo + i++)
+         this.ShowStudentcounts.push(this.pageNo + i++)
+         this.ShowStudentcounts.push(this.pageNo + i++)
+         this.ShowStudentcounts.push(this.pageNo + i++)
+         this.ShowStudentcounts.push(this.pageNo + i++)
+         this.ShowStudentcounts.push(this.pageNo + i++)
+      }
   }
 
   updateFilter(event) {
@@ -69,7 +127,9 @@ this.http.postData(environment.apiURL,formdata).subscribe(res=>
 
 {
 
-this.totalStudentCount = res['count'];
+  this.totalStudentCount = res['count'];
+  
+
 this.rows = res['data']
 this.temp = res['data']
 console.log(this.totalStudentCount);

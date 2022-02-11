@@ -30,6 +30,7 @@ const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
 
 
 import * as $ from 'jquery';
+import { AddStudentsComponent } from './Lists/add-students/add-students.component';
 
 
 @NgModule({
@@ -37,6 +38,7 @@ import * as $ from 'jquery';
     AppComponent,
     FullLayoutComponent,
     ContentLayoutComponent,
+    AddStudentsComponent,
   ],
   imports: [
     BrowserModule,
