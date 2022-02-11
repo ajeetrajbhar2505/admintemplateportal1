@@ -1,1 +1,150 @@
-<p>add-students works!</p>
+
+<!--Popup 1 -->
+<ng-template #content1 let-modal>
+	<div class="modal-header">
+		<h4 class="modal-title">Upload Students</h4>
+		<button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')"> <span aria-hidden="true">&times;</span>
+		</button>
+	</div>
+	<div class="modal-body">
+		<input type="file" name="" id="">
+	</div>
+	<div class="modal-body">
+		<button class="btn btn-primary">Upload Students</button>
+	</div>
+	<div class="modal-footer" style="border-bottom:none !important;border-top:none !important">
+		<button type="button" class="btn btn-primary" (click)="modal.close('Close click')">Close</button>
+	</div>
+</ng-template>
+
+<!-- Popup 2-->
+
+<ng-template #longContent1 let-modal>
+	<div class="modal-header">
+		<h4 class="modal-title">Add Student</h4>
+		<button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')"> <span aria-hidden="true">&times;</span>
+		</button>
+	</div>
+	<div class="modal-body">
+		<div class="card">
+	<div class="card-body">
+		<div class="row">
+			<div class="col-12 col-lg-6 col-xl-6 p-b">
+				<div class="input-group">
+					<input type="text" class="form-control" placeholder="First Name">
+				</div>
+			</div>
+			<div class="col-12 col-lg-6 col-xl-6  p-b">
+				<div class="input-group">
+					<input type="text" class="form-control" placeholder="Last Name">
+				</div>
+			</div>
+			<div class="col-12 col-lg-6 col-xl-6  p-b">
+				<div class="input-group">
+					<input type="text" class="form-control" placeholder="Email Id">
+				</div>
+			</div>
+			<div class="col-12 col-lg-6 col-xl-6  p-b">
+				<div class="input-group">
+					<input type="text" class="form-control" placeholder="Unique Id">
+				</div>
+			</div>
+			<div class="col-12 col-lg-6 col-xl-6  p-b">
+				<div class="input-group">
+					<input type="text" class="form-control" placeholder="Password">
+				</div>
+			</div>
+			<div class="col-12 col-lg-6 col-xl-6  p-b">
+				<div class="input-group">
+					<input type="text" class="form-control" placeholder="Class Roll Number">
+				</div>
+			</div>
+		</div>
+		<!--end row-->
+	</div>
+	<div class="card-body" *ngFor="let value of categoryWiseData;let i = index">
+		<div class="custom-control custom-checkbox mr-sm-2">
+			<input type="checkbox" class="custom-control-input" id="{{value.category}}">
+			<label class="custom-control-label" for="{{value.category}}">{{value.category}}-{{value.semester}}-{{value.academic_year}}</label>
+		  </div>
+    </div>
+</div>
+	</div>
+	<div class="center">
+		<button class="btn btn-success">Submit</button>
+	</div>
+	<div class="modal-footer" style="border-top:none !important">
+		<button type="button" class="btn btn-primary" (click)="modal.close('Close click')">Close</button>
+	</div>
+</ng-template>
+
+
+
+
+<!--Popup 3 -->
+<ng-template #longContent2 let-modal>
+	<div class="modal-header">
+		<h4 class="modal-title">Upload Students</h4>
+		<button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')"> <span aria-hidden="true">&times;</span>
+		</button>
+	</div>
+	<div class="modal-body">
+		<div class="card">
+			<div class="card-body">
+				<input type="file" name="" id="">
+			</div>
+			<div class="card-body" *ngFor="let value of categoryWiseData;let i = index">
+				<div class="custom-control custom-checkbox mr-sm-2">
+					<input type="checkbox" class="custom-control-input" id="{{value.category}}">
+					<label class="custom-control-label" for="{{value.category}}">{{value.category}}-{{value.semester}}-{{value.academic_year}}</label>
+				  </div>
+			</div>
+</div>
+	</div>
+	<div class="center">
+		<button class="btn btn-primary">Upload Students</button>
+		
+	</div>
+	<div class="modal-footer" style="border-top:none !important">
+		<button type="button" class="btn btn-primary" (click)="modal.close('Close click')">Close</button>
+	</div>
+</ng-template>
+<!-- Breadcrumb-->
+	<div class="card">
+		<div class="card-header text-uppercase">Add Students</div>
+		<div class="card-body flex-div">
+	           <button class="btn btn-success" (click)="openVerticallyCentered(content1)">Upload Bulk Password</button>
+	           <button class="btn btn-success" (click)="openScrollableContent(longContent1)">Add Student</button>
+	           <button class="btn btn-success" (click)="openScrollableContent(longContent2)">Upload Student</button>
+		</div>
+	</div>
+
+<!-- <div class="row pt-2 pb-2">
+	<div class="col-sm-9">
+		<h4 class="page-title">Student Lists</h4>
+	</div>
+</div> -->
+<!-- End Breadcrumb-->
+<!-- Filter Datatable Options Starts -->
+<div class="row">
+	<div class="col-sm-12 mb-4">
+		<div class="card">
+			<div class="card-header text-uppercase">Student Table</div>
+			<div class="card-body">
+				<input type='text' class="form-control" placeholder='Type to filter the name column...' (keyup)='updateFilter($event)' />
+				<ngx-datatable #table class='bootstrap' [columns]="columns" [columnMode]="'force'" [headerHeight]="50" [footerHeight]="50" [rowHeight]="'auto'" (page)="pageNo" [limit]="15" [rows]='rows'></ngx-datatable>
+                
+                <div class="pagination-div d-block w-100" >
+                <div class="pagination">
+                    <span class="page-link previous" (click)="previous()" *ngIf="pageNo !== 1">Previous
+                    </span>
+                   <span class="paginationcolor" *ngFor="let item of ShowStudentcounts;let i = index" class="page-link"  [style.Color]="pageNo == item?'blue'  :'black'"   (click)="ChangePageNo(item)">{{item}}</span>
+                   <span class="page-link" (click)="next()">Next
+                   </span>
+                  </div>
+                  </div>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- Filter Datatable Options Ends -->
