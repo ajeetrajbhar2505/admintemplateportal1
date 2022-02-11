@@ -14,10 +14,12 @@ export class StudentListsComponent  {
 
   rows = [];
   temp = [];
-  totalStudentCount = []
+  totalStudentCount:any
+  ShowStudentcounts:any
   stdData = []
   snackbar:any
   pageNo:any = 2
+
  
 
   ChangePageNo(pageNo:any)
@@ -69,9 +71,12 @@ this.http.postData(environment.apiURL,formdata).subscribe(res=>
 {
 
 this.totalStudentCount = res['count'];
+this.ShowStudentcounts = this.totalStudentCount / 20
+console.log({ ShowStudentcounts : this.ShowStudentcounts});
+
 this.rows = res['data']
 this.temp = res['data']
-console.log(this.totalStudentCount);
+console.log(this.totalStudentCount,'..........');
 
 for(var i = 0 ;i<res['data'].length ; i++)
 
