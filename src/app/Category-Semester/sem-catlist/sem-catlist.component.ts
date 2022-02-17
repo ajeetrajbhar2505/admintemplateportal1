@@ -14,12 +14,15 @@ import { environment } from 'src/environments/environment';
 export class SemCatlistComponent implements OnInit {
   form!:FormGroup
   CategoryLists:any = []
+  academic_year:any = []
+  sem_cat:any = []
   snackbar:any
    constructor(public http:ServiceService,private modalService: NgbModal,public fb:FormBuilder) {
-    this.FETCH_SEM_ACADEMIC(),
-    this.FETCH_SEMACADEMIC_YEAR(),
+
     this.FETCH_SEM_CAT()
     this.FETCH_AY()
+
+
    }
  
    ngOnInit(){
@@ -45,6 +48,16 @@ export class SemCatlistComponent implements OnInit {
      this.modalService.open(content1, { centered: true,size: 'lg' });
    }
  
+
+
+   create_new_semester()
+   {
+    this.FETCH_SEM_ACADEMIC(),
+    this.FETCH_SEMACADEMIC_YEAR()
+   }
+
+
+
    private FETCH_SEM_ACADEMIC()
  
    {
@@ -99,8 +112,7 @@ formdata.append('action',"FETCH_AY");
 this.http.postData(environment.apiURL,formdata).subscribe(res=>
 
 {
-this.CategoryLists = res['data'];
-this.rows = res['data']
+this.academic_year = res['data'];
 },error=>{
 
 this.snackbar.open("Something went wrong");
@@ -118,8 +130,7 @@ formdata.append('action',"FETCH_SEM_CAT");
 this.http.postData(environment.apiURL,formdata).subscribe(res=>
 
 {
-this.CategoryLists = res['data'];
-this.rows = res['data']
+this.sem_cat = res['data'];
 },error=>{
 
 this.snackbar.open("Something went wrong");
