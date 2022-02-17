@@ -20,9 +20,9 @@
   }
   .flex-div
   {
-    gap: 5px;
     display: flex;
     justify-content: right;
+    padding: 2%;
   }
   .p-b
   {
@@ -37,3 +37,8 @@
     font-weight:bolder !important;
     font-size: 15px;
   }
+
+.width-100
+{
+  width: 100%;
+}

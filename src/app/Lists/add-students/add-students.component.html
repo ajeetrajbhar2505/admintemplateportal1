@@ -7,10 +7,10 @@
 		</button>
 	</div>
 	<div class="modal-body">
-		<input type="file" name="" id="">
+		<input type="file" name="" id="" accept=".xlsx,.xls,.csv" (change)="UploadBulkPasswords($event)">
 	</div>
 	<div class="modal-body">
-		<button class="btn btn-primary">Upload Students</button>
+		<button class="btn btn-primary" (click)="Upload_Bulk($event)">Upload Students</button>
 	</div>
 	<div class="modal-footer" style="border-bottom:none !important;border-top:none !important">
 		<button type="button" class="btn btn-primary" (click)="modal.close('Close click')">Close</button>
@@ -27,7 +27,7 @@
 	</div>
 	<div class="modal-body">
 		<div class="card">
-	<div class="card-body">
+	<div class="card-body" >
 		<div class="row">
 			<div class="col-12 col-lg-6 col-xl-6 p-b">
 				<div class="input-group">
@@ -62,16 +62,48 @@
 		</div>
 		<!--end row-->
 	</div>
-	<div class="card-body" *ngFor="let value of categoryWiseData;let i = index">
-		<div class="custom-control custom-checkbox mr-sm-2">
-			<input type="checkbox" class="custom-control-input" id="{{value.category}}">
-			<label class="custom-control-label" for="{{value.category}}">{{value.category}}-{{value.semester}}-{{value.academic_year}}</label>
+
+
+	<div class="container" *ngFor="let value of categoryWiseData;let i = index" style="padding:0px;"><br/>
+		<div class="form-group">
+		  <div class="checkbox">
+			<label data-toggle="collapse" data-target="#collapseOne{{i}}" aria-expanded="false" aria-controls="collapseOne{{i}}">
+			  <input type="checkbox" /> {{value.category}}-{{value.semester}}-{{value.academic_year}}
+			</label>
 		  </div>
-    </div>
-</div>
 	</div>
+	<div id="collapseOne{{i}}" aria-expanded="false" class="collapse" >
+		  <div class="well" *ngFor="let e of value['quiz'];let j = index">
+			<div class="custom-control custom-checkbox mr-sm-2">
+				<input type="checkbox" class="custom-control-input"  (change)="SelectQuizName($event,e.id,value.id,i)" id="{{e.id}}">
+				<label class="custom-control-label" for="{{e.id}}">{{e.quiz_name}}</label>
+			</div>
+		 </div>
+	</div>
+</div>
+
+	
+	<!-- <div class="card-body" *ngFor="let value of categoryWiseData;let i = index" style="padding:0px;">
+	<ngb-accordion #acc="ngbAccordion" (click)="SelectQuiz(value.id)">
+		<ngb-panel title="{{value.category}}-{{value.semester}}-{{value.academic_year}}">
+			<ng-template ngbPanelContent>
+				<div  class="card-body" *ngFor="let e of value['quiz'];let j = index">
+					<div class="custom-control custom-checkbox mr-sm-2">
+						<input type="checkbox" class="custom-control-input"  (change)="SelectQuizName($event,e.id,value.id,i)" id="{{e.id}}">
+						<label class="custom-control-label" for="{{e.id}}">{{e.quiz_name}}</label>
+					</div>
+				</div>	
+			</ng-template>
+		</ngb-panel>
+	  </ngb-accordion>
+</div> -->
+
+</div>
+	</div>	
 	<div class="center">
-		<button class="btn btn-success">Submit</button>
+		<div class="col-md-4 col-sm-6 col-12">
+			<button type="button" class="btn btn-success btn-block mb-5" (click)="Checked_SEMESTERWISE_QUIZ_ID();typeSuccess()">Submit</button>
+		</div>
 	</div>
 	<div class="modal-footer" style="border-top:none !important">
 		<button type="button" class="btn btn-primary" (click)="modal.close('Close click')">Close</button>
@@ -91,14 +123,24 @@
 	<div class="modal-body">
 		<div class="card">
 			<div class="card-body">
-				<input type="file" name="" id="">
+				<input type="file" name="" id="" (change)="AssignBulkStudents($event)">
 			</div>
-			<div class="card-body" *ngFor="let value of categoryWiseData;let i = index">
+			<div class="card-body" *ngFor="let value of categoryWiseData;let i = index" style="padding:0px;">
 				<div class="custom-control custom-checkbox mr-sm-2">
-					<input type="checkbox" class="custom-control-input" id="{{value.category}}">
-					<label class="custom-control-label" for="{{value.category}}">{{value.category}}-{{value.semester}}-{{value.academic_year}}</label>
-				  </div>
-			</div>
+					<ngb-accordion #acc="ngbAccordion">
+						<ngb-panel id="1" title="{{value.category}}-{{value.semester}}-{{value.academic_year}}">
+							<ng-template ngbPanelContent>
+								<div  class="card-body" *ngFor="let e of value['quiz'];let j = index">
+									<div class="custom-control custom-checkbox mr-sm-2">
+										<input type="checkbox" class="custom-control-input"  (change)="SelectQuizName($event,e.id,value.id)" id="{{e.id}}">
+										<label class="custom-control-label" for="{{e.id}}">{{e.quiz_name}}</label>
+									</div>
+								</div>	
+							</ng-template>
+						</ngb-panel>
+					</ngb-accordion>
+				</div>
+			</div> 
 </div>
 	</div>
 	<div class="center">

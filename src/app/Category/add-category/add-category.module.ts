@@ -2,19 +2,18 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import  { AddStudentsComponent } from '../add-students/add-students.component'
-import  { AddStudentsRoutingModule} from '../add-students/add-students-routing.module'
+import { AddCategoryRoutingModule } from './add-category-routing.module';
+import { AddCategoryComponent } from './add-category.component'
 
 @NgModule({
-  declarations: 
-  [
-    // AddStudentsComponent
+  declarations: [
+    // AddCategoryComponent
   ],
   imports: [
     CommonModule,
-    AddStudentsRoutingModule,
+    AddCategoryRoutingModule,
     NgxDatatableModule,
     NgbModule
-  ],
+  ]
 })
-export class AddStudentsModule { }
+export class AddCategoryModule { }

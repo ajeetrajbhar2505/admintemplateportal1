@@ -66,9 +66,22 @@ export const Full_ROUTES: Routes = [
     },
     {
         path : 'add-students',
-       loadChildren : () => import('../../Lists/add-students/add-students-routing.module').then(m => m.AddStudentsRoutingModule)
+       loadChildren : () => import('../../Lists/add-students/add-students.module').then(m => m.AddStudentsModule)
    }
-
-    
+   ,
+    {
+        path : 'category',
+       loadChildren : () => import('../../Category/add-category/add-category.module').then(m => m.AddCategoryModule)
+    }
+   ,
+   {
+       path : 'semester',
+      loadChildren : () => import('../../Semester/add-semester/add-semester.module').then(m => m.AddSemesterModule)
+    }
+    ,
+    {
+        path : 'sem-catlist',
+       loadChildren : () => import('../..//Category-Semester/sem-catlist/sem-catlist.module').then(m => m.SemCatlistModule)
+     }
     
 ];

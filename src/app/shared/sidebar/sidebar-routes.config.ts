@@ -133,10 +133,28 @@ export const ROUTES: RouteInfo[] = [
         ]
     },
     {
-        path: '', title: 'Student-Lists', icon: 'zmdi zmdi-widgets', class: 'sub', badge: 'New', badgeClass: 'badge badge-success ml-auto', isExternalLink: false,
+        path: '', title: 'Student-Lists', icon: 'zmdi zmdi-widgets', class: 'sub', badge: '', badgeClass: 'badge badge-success ml-auto', isExternalLink: false,
         submenu: [
             { path: '/students', title: 'Student Lists', icon: 'zmdi zmdi-dot-circle-alt', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] },
             { path: '/add-students', title: 'Add Students', icon: 'zmdi zmdi-dot-circle-alt', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] },
+        ]
+    },
+    {
+        path: '', title: 'Category', icon: 'zmdi zmdi-widgets', class: 'sub', badge: '', badgeClass: 'badge badge-success ml-auto', isExternalLink: false,
+        submenu: [
+            { path: '/category', title: 'Add Category', icon: 'zmdi zmdi-dot-circle-alt', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] },
+        ]
+    },
+    {
+        path: '', title: 'Semester', icon: 'zmdi zmdi-widgets', class: 'sub', badge: '', badgeClass: 'badge badge-success ml-auto', isExternalLink: false,
+        submenu: [
+            { path: '/semester', title: 'Add Semester', icon: 'zmdi zmdi-dot-circle-alt', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] },
+        ]
+    },
+    {
+        path: '', title: 'Category Semester', icon: 'zmdi zmdi-widgets', class: 'sub', badge: '', badgeClass: 'badge badge-success ml-auto', isExternalLink: false,
+        submenu: [
+            { path: '/sem-catlist', title: 'Category Semester Lists', icon: 'zmdi zmdi-dot-circle-alt', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] },
         ]
     },
 

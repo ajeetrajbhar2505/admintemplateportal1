@@ -1,0 +1,45 @@
+<!--Popup 1 -->
+<ng-template #content1 let-modal>
+	<div class="modal-header">
+		<h4 class="modal-title">Add Category</h4>
+		<button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')"> <span aria-hidden="true">&times;</span>
+		</button>
+	</div>
+
+<div class="card-body" [formGroup]="form">
+    <div class="row">
+        <div class="col-12 col-lg-6 col-xl-6 p-b">
+            <div class="input-group">
+                <input type="text" class="form-control" placeholder="Category Name" formControlName="category_name">
+                </div>
+                </div>
+             </div>
+	 <div class="modal-body">
+		<button class="btn btn-success width-100" (click)="Submit()" [disabled]="!form.valid">Submit</button>
+	</div>
+</div>
+
+	<div class="modal-footer" style="border-bottom:none !important;border-top:none !important">
+	</div>
+</ng-template>
+
+<div class="flex-div">
+    <button class="btn btn-success" (click)="openVerticallyCentered(content1)">Create Category</button>
+</div>
+
+
+
+<!-- Filter Datatable Options Starts -->
+<div class="row">
+	<div class="col-sm-12 mb-4">
+		<div class="card">
+			<div class="card-header text-uppercase">Category Lists</div>
+			<div class="card-body">
+				<input type='text' class="form-control" placeholder='Type to filter the name...' (keyup)='updateFilter($event)' />
+				<ngx-datatable #table class='bootstrap' [columns]="columns" [columnMode]="'force'" [headerHeight]="50" [footerHeight]="50" [rowHeight]="'auto'"  [limit]="15" [rows]='rows'></ngx-datatable>
+			</div>
+		</div>
+	</div>
+</div>
+<!-- Filter Datatable Options Ends -->
+
