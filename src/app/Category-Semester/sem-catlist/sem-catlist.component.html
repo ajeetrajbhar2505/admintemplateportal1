@@ -8,19 +8,31 @@
 
 <div class="card-body" [formGroup]="form">
         <div class="form-group row">
-            <label for="basic-select" class="col-sm-3 col-form-label">Select Category</label>
-            <div class="col-sm-9">
-                <select class="form-control" id="default-select">
-                    <option>Option 1</option>
-                    <option>Option 2</option>
-                    <option>Option 3</option>
-                    <option>Option 4</option>
-                    <option>Option 5</option>
+            <div class="col">
+                <select class="form-select" id="default-select" (change)="Selecteddata($event)" formControlName="category">
+					<option value="0">Select Category</option>
+                    <option *ngFor="let cat of CategoryLists;" >{{cat.name}}</option>
                 </select>
             </div>
-             </div>
+         </div>
+		 <div class="form-group row">
+            <div class="col">
+                <select class="form-select" id="default-select" (change)="Selecteddata($event)" formControlName="semester">
+					<option value="0">Select Semester</option>
+                    <option *ngFor="let sem of semesterLists;" >{{sem.name}}</option>
+                </select>
+            </div>
+         </div>
+		 <div class="form-group row">
+            <div class="col">
+                <select class="form-select" id="default-select" (change)="Selecteddata($event)" formControlName="year">
+					<option value="0">Select Year</option>
+                    <option *ngFor="let year of academic_year;" >{{year.academic_year}}</option>
+                </select>
+            </div>
+         </div>
 	 <div class="modal-body">
-		<button class="btn btn-success width-100" (click)="Submit()" [disabled]="!form.valid">Submit</button>
+		<button class="btn btn-success width-100" (click)="Submit()" [disabled]="!form.valid || form.get('category')?.value == 0 || form.get('semester')?.value == 0 || form.get('year')?.value == 0">Submit</button>
 	</div>
 </div>
 
@@ -28,9 +40,97 @@
 	</div>
 </ng-template>
 
-<div class="flex-div">
-    <button class="btn btn-success" (click)="openVerticallyCentered(content1);create_new_semester()">Create New Semester</button>
+
+
+<!--Popup 1 -->
+<ng-template #content2 let-modal>
+	<div class="modal-header">
+		<h4 class="modal-title">Add Academic Year</h4>
+		<button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')"> <span aria-hidden="true">&times;</span>
+		</button>
+	</div>
+
+<div class="card-body" [formGroup]="new_academic_year">
+        <div class="form-group row">
+			<div class="col">
+				<div class="input-group">
+					<input type="text" class="form-control" placeholder="New Academic Year" formControlName="academic_year">
+				</div>
+			</div>
+         </div>
+		<div class="form-group">
+			<div class="checkbox">
+			<input type="checkbox" id="1" (click)="Repeat_Cat_Year($event)">&nbsp;
+			<label for="1">Repeat Category and Sem from previous Academic Year</label>
+			</div>
+		 </div>
+		<div class="form-group">
+			<div class="checkbox">
+				<input type="checkbox" id="2" (click)="Create_AS_Current_Year($event)">&nbsp;
+				<label for="2">Make these as current year</label>
+		 </div>
+		 </div>
+	<div class="modal-body">
+		<button class="btn btn-success width-100" (click)="SubmitYear()" [disabled]="!new_academic_year.valid ">Submit</button>
+	</div>
 </div>
+
+	<div class="modal-footer" style="border-bottom:none !important;border-top:none !important">
+	</div>
+</ng-template>
+
+
+<!--Popup 3 -->
+<ng-template #content3 let-modal>
+	<div class="modal-header">
+		<h4 class="modal-title">Paper Details for Entrance Test</h4>
+		<button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')"> <span aria-hidden="true">&times;</span>
+		</button>
+	</div>
+	<div class="table-responsive">
+		<table class="table">
+			<thead class="sticky modal-title">
+				<tr>
+					<th scope="col">Sr No.</th>
+					<th scope="col">Paper</th>
+					<th scope="col">Date</th>
+					<th scope="col">Students Answered
+					</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr *ngFor="let data of  PAPER_CATEGORYWISE_DATA;let i = index">
+					<th scope="row">{{i+1}}</th>
+					<td>{{data.quiz_name}}</td>
+					<td>{{data.quiz_date}}</td>
+					<td>{{data.ANSWERED}}</td>
+				</tr>
+			</tbody>
+		</table>
+		<div class="modal-footer" *ngIf="!PAPER_CATEGORYWISE_DATA.length" style="border-bottom:none !important;border-top:none !important;display: flex;justify-content: center;">
+			NO DATA TO DISPLAY !
+		</div>
+	</div>
+	<div class="modal-footer" style="border-bottom:none !important;border-top:none !important">
+	</div>
+</ng-template>
+
+<div class="flex-div">
+	<button class="btn btn-gradient-secondary m-1" (click)="openVerticallyCentered(content2);create_new_academic_year()">Create New Academic Year</button>
+    <button class="btn btn-gradient-secondary m-1" (click)="openVerticallyCentered(content1);create_new_semester()">Create New Semester</button>
+</div>
+
+
+<div class="form-group row center">
+	<div class="col-sm-4">
+		<div class="center">
+			<label for="">Search By Year</label>
+		</div>
+		<select class="form-select" id="default-select" [(ngModel)]="SelectedYearId" (change)="SearchByYear($event)">
+			<option *ngFor="let year of Years;" value="{{year.id}}">{{year.academic_year}}</option>
+		</select>
+	</div>
+ </div>
 
 
 
@@ -38,11 +138,47 @@
 <div class="row">
 	<div class="col-sm-12 mb-4">
 		<div class="card">
-			<div class="card-header text-uppercase">Category Semester Lists</div>
-			<div class="card-body">
+			<!-- <div class="card-header text-uppercase">Category Semester Lists</div> -->
+			<!-- <div class="card-body">
 				<input type='text' class="form-control" placeholder='Type to filter the category...' (keyup)='updateFilter($event)' />
 				<ngx-datatable #table class='bootstrap' [columns]="columns" [columnMode]="'force'" [headerHeight]="50" [footerHeight]="50" [rowHeight]="'auto'"  [limit]="15" [rows]='rows'></ngx-datatable>
+			</div> -->
+			<div class="card-body">
+				<h5 class="card-title">Category Semester Lists</h5>
+				<div class="table-responsive">
+					<table class="table">
+						<thead class="sticky">
+							<tr>
+								<th scope="col">Sr No.</th>
+								<th scope="col">Category</th>
+								<th scope="col">Semester</th>
+								<th scope="col">Year</th>
+								<th scope="col">Results</th>
+								<th scope="col">Download All Result	</th>
+								<th scope="col">Download Q Paper</th>
+								<th scope="col">Papers</th>
+								<th scope="col">Total Papers</th>
+								<th scope="col">CLO Wise Report</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr *ngFor="let data of rows;let i = index">
+								<th scope="row">{{i+1}}</th>
+								<td>{{data.category}}</td>
+								<td>{{data.semester}}</td>
+								<td>{{data.academic_year}}</td>
+								<td><button class="btn btn-gradient-secondary m-1">Results</button></td>
+								<td><button class="btn btn-gradient-secondary m-1">Download Zip</button></td>
+								<td><button class="btn btn-gradient-secondary m-1">Download Q Papers</button></td>
+								<td><button class="btn btn-gradient-secondary m-1">Download Q Papers Excel</button></td>
+								<td (click)="View_Paper_Details(data.id);openXl(content3)">{{data.TOTAL_PAPER}}</td>
+								<td><button class="btn btn-gradient-secondary m-1">CLO Wise Report</button></td>
+							</tr>
+						</tbody>
+					</table>
+				</div>
 			</div>
+			
 		</div>
 	</div>
 </div>

@@ -2,7 +2,31 @@ import { RouteInfo } from './sidebar.metadata';
 
 //Sidebar menu Routes and data
 export const ROUTES: RouteInfo[] = [
-
+    {
+        path: '', title: 'Student-Lists', icon: 'zmdi zmdi-widgets', class: 'sub', badge: '', badgeClass: 'badge badge-success ml-auto', isExternalLink: false,
+        submenu: [
+            { path: '/students', title: 'Student Lists', icon: 'zmdi zmdi-dot-circle-alt', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] },
+            { path: '/add-students', title: 'Add Students', icon: 'zmdi zmdi-dot-circle-alt', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] },
+        ]
+    },
+    {
+        path: '', title: 'Category', icon: 'zmdi zmdi-widgets', class: 'sub', badge: '', badgeClass: 'badge badge-success ml-auto', isExternalLink: false,
+        submenu: [
+            { path: '/category', title: 'Add Category', icon: 'zmdi zmdi-dot-circle-alt', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] },
+        ]
+    },
+    {
+        path: '', title: 'Semester', icon: 'zmdi zmdi-widgets', class: 'sub', badge: '', badgeClass: 'badge badge-success ml-auto', isExternalLink: false,
+        submenu: [
+            { path: '/semester', title: 'Add Semester', icon: 'zmdi zmdi-dot-circle-alt', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] },
+        ]
+    },
+    {
+        path: '', title: 'Category Semester', icon: 'zmdi zmdi-widgets', class: 'sub', badge: '', badgeClass: 'badge badge-success ml-auto', isExternalLink: false,
+        submenu: [
+            { path: '/sem-catlist', title: 'Category Semester Lists', icon: 'zmdi zmdi-dot-circle-alt', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] },
+        ]
+    },
     {
         path: '', title: 'Dashboard', icon: 'zmdi zmdi-view-dashboard', class: 'sub', badge: '', badgeClass: '', isExternalLink: false, submenu: [
             { path: '/dashboard/ecommerce-v1', title: 'eCommerce V1', icon: 'zmdi zmdi-dot-circle-alt', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] },
@@ -130,31 +154,6 @@ export const ROUTES: RouteInfo[] = [
         submenu: [
             { path: '/maps/google', title: 'Google Maps', icon: 'zmdi zmdi-dot-circle-alt', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] },
             { path: '/maps/fullscreen', title: 'Full Screen Map', icon: 'zmdi zmdi-dot-circle-alt', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] },
-        ]
-    },
-    {
-        path: '', title: 'Student-Lists', icon: 'zmdi zmdi-widgets', class: 'sub', badge: '', badgeClass: 'badge badge-success ml-auto', isExternalLink: false,
-        submenu: [
-            { path: '/students', title: 'Student Lists', icon: 'zmdi zmdi-dot-circle-alt', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] },
-            { path: '/add-students', title: 'Add Students', icon: 'zmdi zmdi-dot-circle-alt', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] },
-        ]
-    },
-    {
-        path: '', title: 'Category', icon: 'zmdi zmdi-widgets', class: 'sub', badge: '', badgeClass: 'badge badge-success ml-auto', isExternalLink: false,
-        submenu: [
-            { path: '/category', title: 'Add Category', icon: 'zmdi zmdi-dot-circle-alt', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] },
-        ]
-    },
-    {
-        path: '', title: 'Semester', icon: 'zmdi zmdi-widgets', class: 'sub', badge: '', badgeClass: 'badge badge-success ml-auto', isExternalLink: false,
-        submenu: [
-            { path: '/semester', title: 'Add Semester', icon: 'zmdi zmdi-dot-circle-alt', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] },
-        ]
-    },
-    {
-        path: '', title: 'Category Semester', icon: 'zmdi zmdi-widgets', class: 'sub', badge: '', badgeClass: 'badge badge-success ml-auto', isExternalLink: false,
-        submenu: [
-            { path: '/sem-catlist', title: 'Category Semester Lists', icon: 'zmdi zmdi-dot-circle-alt', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] },
         ]
     },
 
