@@ -8,7 +8,7 @@ export const DOMAIN =
   //domainname :"https://jbims.offee.in/"
 
 //  domainname :"https://aurouniversity.offee.in/"
-    domainname :"https://offee.online/"
+    domainname :"https://testing.offee.online/"
     // domainname:"https://gil.offee.in/"
     //  domainname :"https://staging.offee.in/"
   // domainname:"https://knowmat.offee.online/"
@@ -45,8 +45,8 @@ export const URLS  =
   EXPORTZIPPAPERS_EXCEL:DOMAIN.domainname+"services/interfaces/export_question_paper_zips.php",
   CLO_REPORT: DOMAIN.domainname+"services/interfaces/bloomscontroller.php",
   ADMIN_USER_QUESTION_ANSWER_UPLOAD: DOMAIN.domainname+"services/interfaces/AdminImageUpload.php",
-  DASHBOARD_STATS : DOMAIN.domainname+"services/interfaces/getStats.php"
-
+  DASHBOARD_STATS : DOMAIN.domainname+"services/interfaces/getStats.php",
+  REPORTS : DOMAIN.domainname+"services/interfaces/ReportsController.php"
 
   // SYNC_DEVICE_URL : DOMAIN.domainname+"services/interfaces/command.php"
 
@@ -87,7 +87,8 @@ export const environment =
   CLO_REPORTS : URLS.CLO_REPORT,
   isDevice:true,
   ADMIN_USER_QUESTION_ANSWER_UPLOAD:URLS.ADMIN_USER_QUESTION_ANSWER_UPLOAD,
-  COLLEGE_STATS : URLS.DASHBOARD_STATS
+  COLLEGE_STATS : URLS.DASHBOARD_STATS,
+  REPORTS : URLS.REPORTS
 
   //  SYNCDEVICE_URl : URLS.SYNC_DEVICE_URL
 

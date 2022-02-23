@@ -27,6 +27,9 @@ export const ROUTES: RouteInfo[] = [
             { path: '/sem-catlist', title: 'Category Semester Lists', icon: 'zmdi zmdi-dot-circle-alt', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] },
         ]
     },
+    { path: '/test-report', title: 'Test Report', icon: 'zmdi zmdi-calendar-check', class: '', badge: 'New', badgeClass: 'badge badge-success ml-auto', isExternalLink: false, submenu: [] },
+    { path: '/admin', title: 'Admin', icon: 'zmdi zmdi-dot-circle-alt', class: '', badge: 'New', badgeClass: 'badge badge-success ml-auto', isExternalLink: false, submenu: [] },
+
     {
         path: '', title: 'Dashboard', icon: 'zmdi zmdi-view-dashboard', class: 'sub', badge: '', badgeClass: '', isExternalLink: false, submenu: [
             { path: '/dashboard/ecommerce-v1', title: 'eCommerce V1', icon: 'zmdi zmdi-dot-circle-alt', class: '', badge: '', badgeClass: '', isExternalLink: false, submenu: [] },

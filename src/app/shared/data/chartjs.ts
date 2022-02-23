@@ -127,12 +127,12 @@ export var barChartOptions: any = {
   }
 
 };
-export var barChartLabels: string[] = ['Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa', 'Su'];
+export var barChartLabels: string[] = ['Mo', 'Tu', 'We', 'Th', 'Fr', 'Sa', 'Su','Wu','Oa','As','Ad','Aq','Fg'];
 export var barChartType = 'bar';
 export var barChartLegend = true;
 
 export var barChartData: any[] = [
-  { barPercentage: .5, data: [13, 20, 4, 18, 29, 25, 8], label: 'Google' },
+  // { barPercentage: .5, data: [13, 20, 4, 18, 29, 25, 8], label: 'Google' },
   { barPercentage: .5, data: [31, 30, 6, 6, 21, 4, 11], label: 'Facebook' }
 ];
 

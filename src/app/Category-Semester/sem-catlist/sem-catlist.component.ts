@@ -6,6 +6,7 @@ import { ServiceService } from 'src/app/shared/service.service';
 import { ViewChild } from '@angular/core';
 import { environment } from 'src/environments/environment';
 
+
 @Component({
   selector: 'app-sem-catlist',
   templateUrl: './sem-catlist.component.html',

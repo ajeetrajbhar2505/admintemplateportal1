@@ -23,6 +23,8 @@ import { NgxDatatableModule } from '@swimlane/ngx-datatable';
 import { TokenInterceptorService } from './token-interceptor.service';
 
 
+
+
 const DEFAULT_PERFECT_SCROLLBAR_CONFIG: PerfectScrollbarConfigInterface = {
   suppressScrollX: true,
   wheelPropagation: false
@@ -34,6 +36,7 @@ import { AddStudentsComponent } from './Lists/add-students/add-students.componen
 import { AddCategoryComponent } from './Category/add-category/add-category.component';
 import { AddSemesterComponent } from './Semester/add-semester/add-semester.component';
 import { SemCatlistComponent } from './Category-Semester/sem-catlist/sem-catlist.component';
+import { AdminCreationComponent } from './Admin/admin-creation/admin-creation.component';
 
 
 @NgModule({
@@ -45,6 +48,7 @@ import { SemCatlistComponent } from './Category-Semester/sem-catlist/sem-catlist
     AddCategoryComponent,
     AddSemesterComponent,
     SemCatlistComponent,
+    AdminCreationComponent,
   ],
   imports: [
     BrowserModule,

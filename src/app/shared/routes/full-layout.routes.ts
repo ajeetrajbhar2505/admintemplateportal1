@@ -81,7 +81,17 @@ export const Full_ROUTES: Routes = [
     ,
     {
         path : 'sem-catlist',
-       loadChildren : () => import('../..//Category-Semester/sem-catlist/sem-catlist.module').then(m => m.SemCatlistModule)
+       loadChildren : () => import('../../Category-Semester/sem-catlist/sem-catlist.module').then(m => m.SemCatlistModule)
      }
+     ,
+     {
+         path : 'test-report',
+        loadChildren : () => import('../../Test-Report/test-report/test-report.module').then(m => m.TestReportModule)
+      }
+      ,
+      {
+          path : 'admin',
+         loadChildren : () => import('../../Admin/admin-creation/admin-creation.module').then(m => m.AdminCreationModule)
+      }
     
 ];

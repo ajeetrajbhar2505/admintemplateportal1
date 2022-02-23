@@ -1,0 +1,95 @@
+<!--Popup -->
+<ng-template #content1 let-modal>
+	<div class="modal-header">
+		<h4 class="modal-title">Admin Creation</h4>
+		<button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')"> <span aria-hidden="true">&times;</span>
+		</button>
+	</div>
+
+	<div class="modal-body">
+		<div class="card">
+	<div class="card-body" >
+		<div class="row">
+			<div class="col-12 col-lg-6 col-xl-6 p-b">
+				<div class="input-group">
+					<input type="text" class="form-control" placeholder="Username">
+				</div>
+			</div>
+			<div class="col-12 col-lg-6 col-xl-6  p-b">
+				<div class="input-group">
+					<input type="password" class="form-control" placeholder="Password">
+				</div>
+			</div>
+            <div class="col-12 col-lg-6 col-xl-6  p-b">
+				<div class="input-group">
+					<input type="email" class="form-control" placeholder="Email Id">
+				</div>
+			</div>
+			<div class="col-12 col-lg-6 col-xl-6  p-b">
+				<div class="input-group">
+					<input type="text" class="form-control" placeholder="Description">
+				</div>
+			</div>
+		</div>
+		<!--end row-->
+		<div class="row">
+        <div class="col-lg-4  p-b">
+            <div class="input-group">
+                <select class="form-select" id="default-select" (change)="SearchRole($event)">
+					<option value="0">Select Admin Role</option>
+                    <option *ngFor="let role of Admin_roles;" >{{role}}</option>
+                </select>
+            </div>
+        </div>
+        <div class="col">
+            <label for="">
+                
+            </label>
+        </div>
+    </div>
+</div>
+
+</div>
+	</div>	
+
+	<div class="modal-footer" style="border-bottom:none !important;border-top:none !important">
+	</div>
+</ng-template>
+
+<div class="flex-right">
+<button class="btn btn-gradient-info m-1" (click)="openXl(content1)">Create New Admin</button>
+</div>
+
+<div class="row">
+	<div class="col-sm-12 mb-4">
+		<div class="card">
+			<div class="card-body">
+				<h5 class="card-title">Admin Lists</h5>
+				<div class="table-responsive">
+					<table class="table">
+						<thead class="sticky">
+							<tr>
+								<th scope="col">Sr No.</th>
+								<th scope="col">Username</th>
+								<th scope="col">Role</th>
+								<th scope="col">Operation</th>
+							</tr>
+						</thead>
+						<tbody>
+							<tr *ngFor="let data of AdminsData;let i = index">
+								<th scope="row">{{i+1}}</th>
+								<td>{{data.admin}}</td>
+								<td>{{data.role}}</td>
+								<td><button class="btn btn-gradient-danger m-1">Reset Password</button></td>
+							</tr>
+						</tbody>
+					</table>
+                    <div class="modal-footer" *ngIf="!AdminsData.length"  style="border-bottom:none !important;border-top:none !important;display: flex;justify-content: center;">
+                        NO DATA TO DISPLAY !
+                    </div>
+				</div>
+			</div>
+			
+		</div>
+	</div>
+</div>

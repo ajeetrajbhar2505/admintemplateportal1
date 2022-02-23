@@ -1,0 +1,70 @@
+
+.pagination-div
+{
+  text-align: right;
+}
+.pagination {
+    display: inline-block;
+  }
+  
+  .pagination span {
+    color: black;
+    float: left;
+    padding: 8px 16px;
+    text-decoration: none;
+    cursor: pointer;
+  }
+  .paginationcolor
+  {
+    background-color: white;
+    color: black;
+  }
+  .flex-div
+  {
+    display: flex;
+    justify-content: left;
+    padding: 2%;
+    gap: 10px;
+  }
+  .p-b
+  {
+    padding-bottom: 30.5px;
+  }
+  .center
+  {
+    display: flex;
+    justify-content: center;
+  }
+  :placeholder-shown{
+    font-weight:bolder !important;
+    font-size: 15px;
+  }
+
+.width-100
+{
+  width: 100%;
+}
+
+.table-responsive 
+{
+  max-height: 470px;
+}
+.sticky
+{
+  top: 0;
+  width: 100%;
+  position: sticky;
+  background: white;
+}
+.downloadbuttons
+{
+  color: red;
+  border: 1px solid red;
+  background-color: white;
+}
+.flex-right
+{
+  display: flex;
+  padding: 2%;
+  justify-content: right;
+}
