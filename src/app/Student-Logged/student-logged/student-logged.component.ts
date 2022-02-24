@@ -11,6 +11,8 @@ import { environment } from 'src/environments/environment';
 })
 export class StudentLoggedComponent implements OnInit {
   STUDENTLOGGED:any = []
+
+  Userdata:any = []
   snackbar:any
   constructor(public http:ServiceService,private modalService: NgbModal) {
     this.STUDENT_LOGGEDIN()
@@ -22,30 +24,11 @@ export class StudentLoggedComponent implements OnInit {
 
   updateFilter(event:any) {
     const val = event.target.value.toLowerCase();
-
-    // filter our data
-    const temp = this.rows.filter(function (d) {
-        return d.roll.toLowerCase().indexOf(val) !== -1 || !val;
-    });
-    // update the rows
-    this.rows = temp;
-    // Whenever the filter changes, always go back to the first page
-    this.table.offset = 0;
+     console.log(val);
+     
 }
 
-private SEARCH_LOGGED_IN(user_roll:any)
-{
-  var formdata = new FormData;
-  formdata.append('action',"SEARCH_LOGGED_IN");
-  formdata.append('user_roll',user_roll);
-  this.http.postData(environment.apiURL,formdata).subscribe(res=>
-  {
-     this.STUDENTLOGGED = res['data']
-  },error=>{
-  this.snackbar.open("Something went wrong");
-  })
 
-  }
 
   rows = [];
   columns = [
@@ -57,11 +40,16 @@ private SEARCH_LOGGED_IN(user_roll:any)
     ];
 
   @ViewChild(DatatableComponent) table: DatatableComponent;
+  openXl(content1:any) { this.modalService.open(content1, { scrollable: true}); 
+  }
+
   onSelect(data:any)
   {
    console.log(data);
-   
+   this.STUDLOGDETAILS(data.id)
   }
+
+
 
 private STUDENT_LOGGEDIN()
 {
@@ -70,6 +58,37 @@ private STUDENT_LOGGEDIN()
   this.http.postData(environment.apiURL,formdata).subscribe(res=>
   {
      this.rows = res['data']
+  },error=>{
+  this.snackbar.open("Something went wrong");
+  })
+
+  }
+
+private STUDLOGDETAILS(student_id:any)
+{
+  var formdata = new FormData;
+  formdata.append('action',"STUDLOGDETAILS");
+  formdata.append('student_id',student_id);
+  formdata.append('from','ID');
+  this.http.postData(environment.apiURL,formdata).subscribe(res=>
+  {
+     this.Userdata = res['data']
+     console.log({Userdata : this.Userdata});
+     
+  },error=>{
+    alert(error)
+  })
+
+  }
+
+private SEARCH_LOGGED_IN(user_roll:any)
+{
+  var formdata = new FormData;
+  formdata.append('action',"SEARCH_LOGGED_IN");
+  formdata.append('user_roll',user_roll);
+  this.http.postData(environment.apiURL,formdata).subscribe(res=>
+  {
+     this.STUDENTLOGGED = res['data']
   },error=>{
   this.snackbar.open("Something went wrong");
   })

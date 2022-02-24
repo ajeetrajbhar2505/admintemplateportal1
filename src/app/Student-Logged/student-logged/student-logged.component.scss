@@ -3,3 +3,14 @@
     display: flex;
     justify-content: right;
 }
+.sticky
+{
+  top: 0;
+  width: 100%;
+  position: sticky;
+  background: white;
+}
+img:hover
+{
+  box-shadow:  0 0 0 3px lightgray;
+}
