@@ -1,0 +1,75 @@
+
+<!-- Filter Datatable Options Starts -->
+<div class="row">
+	<div class="col-sm-12 mb-4">
+		<div class="card">
+			<div class="card-header text-uppercase">Students Logged In</div>
+            <div class="card-body text-right">
+                  <button class="btn btn-danger">Logout All</button>
+            </div>
+			<div class="card-body">
+				<input type='text' class="form-control" placeholder='Unique Id' (keyup)='updateFilter($event)' />
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="row">
+	<div class="col-sm-12 mb-4">
+		<div class="card">
+         <div class="card-body">
+            <ngx-datatable 
+            #table
+            [rows]="rows" 
+            class="bootstrap" 
+            [columnMode]="'force'" 
+            [headerHeight]="50" 
+            [footerHeight]="50" 
+            [rowHeight]="'auto'"
+            [columns]="columns" 
+            [rowHeight]="'auto'"  
+            [limit]="15"
+            >
+            
+              <ngx-datatable-column *ngFor="let column of columns; let i = index;" name="{{column.name}}" prop="{{column.prop}}">
+                <ng-template let-value="value" let-row="row" *ngIf="column.name==='Actions'" ngx-datatable-cell-template>
+                  <span>
+                    <button style="background-color:red;height:15px;" (click)='onSelectRed(row)'><i class="rb-ic rb-ic-add-frame"></i></button>
+                    <button style="background-color:blue;height:15px;" class="btn" (click)='onSelectBlue(value)'><i class="rb-ic rb-ic-add-frame"></i></button>
+                  </span>
+                </ng-template>
+              </ngx-datatable-column>
+              <ngx-datatable-column *ngFor="let data of rows; let i = index;" name="IMAGE" prop="{{data.prop}}">
+                <ng-template #buttonsTemplate let-row="row" let-value="value" ngx-datatable-cell-template>
+                    <span>
+                     <img src="https://offee.online/services/uploads/user_login/{{data.image}}" alt="" srcset="" width="50px">
+                  </span>
+                </ng-template>
+              </ngx-datatable-column>
+              <ngx-datatable-column *ngFor="let column of rows; let i = index;" name="Action" prop="{{column.prop}}">
+                <ng-template #buttonsTemplate let-row="row" let-value="value" ngx-datatable-cell-template>
+                    <span>
+                  <button class="btn btn-danger" (click)='onSelect(row)'>
+                    <i class="icon-logout icons"></i>Logout
+                  </button>
+                  </span>
+                </ng-template>
+              </ngx-datatable-column>
+              <ngx-datatable-column *ngFor="let column of rows; let i = index;" name="Action" prop="{{column.prop}}">
+                <ng-template #buttonsTemplate let-row="row" let-value="value" ngx-datatable-cell-template>
+                    <span>
+                  <button class="btn btn-danger" (click)='onSelect(row)'>
+                   <i class="icon-info icons"></i> Check Login Details
+                  </button>
+                  </span>
+                </ng-template>
+              </ngx-datatable-column>
+            </ngx-datatable>
+
+                <div class="modal-footer" *ngIf="!rows.length"  style="border-bottom:none !important;border-top:none !important;display: flex;justify-content: center;">
+                    NO DATA TO DISPLAY !
+                </div>
+         </div>
+		</div>
+	</div>
+</div>

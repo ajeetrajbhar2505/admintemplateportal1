@@ -93,5 +93,10 @@ export const Full_ROUTES: Routes = [
           path : 'admin',
          loadChildren : () => import('../../Admin/admin-creation/admin-creation.module').then(m => m.AdminCreationModule)
       }
+      ,
+      {
+          path : 'student-log',
+         loadChildren : () => import('../../Student-Logged/student-logged/student-logged.module').then(m => m.StudentLoggedModule)
+      }
     
 ];
