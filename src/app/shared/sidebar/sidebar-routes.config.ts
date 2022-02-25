@@ -30,6 +30,7 @@ export const ROUTES: RouteInfo[] = [
     { path: '/test-report', title: 'Test Report', icon: 'zmdi zmdi-calendar-check', class: '', badge: 'New', badgeClass: 'badge badge-success ml-auto', isExternalLink: false, submenu: [] },
     { path: '/admin', title: 'Admin', icon: 'zmdi zmdi-dot-circle-alt', class: '', badge: 'New', badgeClass: 'badge badge-success ml-auto', isExternalLink: false, submenu: [] },
     { path: '/student-log', title: 'Logged In', icon: 'zmdi zmdi-dot-circle-alt', class: '', badge: 'New', badgeClass: 'badge badge-success ml-auto', isExternalLink: false, submenu: [] },
+    { path: '/quiz-lists', title: 'Quiz', icon: 'zmdi zmdi-dot-circle-alt', class: '', badge: 'New', badgeClass: 'badge badge-success ml-auto', isExternalLink: false, submenu: [] },
 
     {
         path: '', title: 'Dashboard', icon: 'zmdi zmdi-view-dashboard', class: 'sub', badge: '', badgeClass: '', isExternalLink: false, submenu: [

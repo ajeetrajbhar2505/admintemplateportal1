@@ -11,7 +11,7 @@ import { environment } from 'src/environments/environment';
 })
 export class StudentLoggedComponent implements OnInit {
   STUDENTLOGGED:any = []
-
+  text_search:any = undefined
   Userdata:any = []
   snackbar:any
   constructor(public http:ServiceService,private modalService: NgbModal) {
@@ -25,7 +25,7 @@ export class StudentLoggedComponent implements OnInit {
   updateFilter(event:any) {
     const val = event.target.value.toLowerCase();
      console.log(val);
-     
+     this.text_search = event.target.value
 }
 
 
@@ -40,7 +40,7 @@ export class StudentLoggedComponent implements OnInit {
     ];
 
   @ViewChild(DatatableComponent) table: DatatableComponent;
-  openXl(content1:any) { this.modalService.open(content1, { scrollable: true}); 
+  openXl(content1:any) { this.modalService.open(content1, { scrollable: true,size: 'lg' }); 
   }
 
   onSelect(data:any)
@@ -81,17 +81,23 @@ private STUDLOGDETAILS(student_id:any)
 
   }
 
-private SEARCH_LOGGED_IN(user_roll:any)
+public SEARCH_LOGGED_IN()
 {
-  var formdata = new FormData;
-  formdata.append('action',"SEARCH_LOGGED_IN");
-  formdata.append('user_roll',user_roll);
-  this.http.postData(environment.apiURL,formdata).subscribe(res=>
+  if (this.text_search == undefined || this.text_search == null || this.text_search == '') {
+    return;
+  }
+  else
   {
-     this.STUDENTLOGGED = res['data']
-  },error=>{
-  this.snackbar.open("Something went wrong");
-  })
+    var formdata = new FormData;
+    formdata.append('action',"SEARCH_LOGGED_IN");
+    formdata.append('user_roll',this.text_search);
+    this.http.postData(environment.apiURL,formdata).subscribe(res=>
+    {
+       this.rows = res['data']
+    },error=>{
+    this.snackbar.open("Something went wrong");
+    })
+  }
 
   }
 

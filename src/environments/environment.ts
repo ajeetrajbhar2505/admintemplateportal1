@@ -8,9 +8,10 @@ export const DOMAIN =
   //domainname :"https://jbims.offee.in/"
 
 //  domainname :"https://aurouniversity.offee.in/"
-    domainname : "https://apptesting-offee.online/"
+    // domainname : "https://apptesting-offee.online/"
+    domainname : "https://testing.offee.online/"
     // domainname :"https://testing.offee.online/"
-    // domainname:"https://gil.offee.in/"
+    // domainname:"https://gil.offee.in/" 
     //  domainname :"https://staging.offee.in/"
   // domainname:"https://knowmat.offee.online/"
 
