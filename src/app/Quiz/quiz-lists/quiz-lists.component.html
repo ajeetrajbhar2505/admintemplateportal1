@@ -1,14 +1,74 @@
-<div class="card">
-	<div class="card-body center">
+
+
+<ng-template #content1 let-modal>
+	<div class="modal-header">
+		<h4 class="modal-title">On Going Exams in {{quiz_name}}</h4>
+		<button type="button" class="close" aria-label="Close" (click)="modal.dismiss('Cross click')"> <span aria-hidden="true">&times;</span>
+		</button>
+	</div>
+    <div class="row">
+            <div class="card">
+             <div class="card-body">
+              <div class="table-responsive">
+                <table class="table">
+                  <thead class="sticky bg-dark" style="color: white;">
+                    <tr>
+                      <th scope="col">Sr No.</th>
+                      <th scope="col">Name</th>
+                      <th scope="col">ROLL</th>
+                      <th scope="col">Start Time</th>
+                      <th scope="col">Minimize</th>
+                      <th scope="col">Images</th>
+                    </tr>
+                  </thead>
+                  <tbody>
+                    <tr *ngFor="let data of ONGOING_EXAM_ARRAY;let i = index">
+                      <th scope="row">{{i+1}}</th>
+                      <td>{{data.fname}}</td>
+                      <td>{{data.roll}}</td>
+                      <td>{{data.start_time}}</td>
+                     <td>{{data.hasLostFocus}}</td>
+                     <td>
+                        <img src="https://testing.offee.online/services/uploads/user_login/{{data.image}}" alt="" width="60px">
+                     </td>
+                    </tr>
+                  </tbody>
+                </table>
+              </div>
+             <div class="modal-footer" *ngIf="!ONGOING_EXAM_ARRAY.length"  style="border-bottom:none !important;border-top:none !important;display: flex;justify-content: center;">
+                        NO DATA TO DISPLAY !
+                </div>
+             </div>
+        </div>
+    </div>
+</ng-template>
+
+
+    <div class="center p-b-5">
         <div class="col-sm-4">
-            <select class="form-select">
-                <option>15-03-2019</option>
+            <select class="form-select" (change)="GetALLPAPER_DATEWISE($event)">
+                <option value="0">Search By Date</option>
+                <option *ngFor="let date of QUIZ_DATES_ARRAY;">{{date.quiz_date}}</option>
             </select>
         </div>
     </div>
-    <div class="card">
-        <div class="card-body">
-            
-        </div>
+
+
+
+<div class="card" *ngFor="let data of QUIZS;">
+    <div class="card-body" >
+        <h5 class="pointer" (click)="openVerticallyCentered(content1);GetONGOING_EXAM(data)">
+            <span *ngIf="data.quiz_visibility == 1">
+                <img src="assets/img/gifs/live.gif" alt="" width="30px">
+            </span>
+            {{data.quiz_name}} ( On going {{data.STUDENT_STARTED}} )</h5>
+        <p>{{data.quiz_description}}</p>
+        <p>{{data.CAT_SEM}}</p>
+        <p><b>Exam Date : {{data.quiz_date}} at {{data.quiz_time}}</b></p>
+        <p>Desc : {{data.quiz_duration}} mins and {{data.max_marks}} marks</p>
+        <p>Students Assigned : {{data.STUDENT_ASSIGNED}}</p>
+        <p class="pointer" (click)="GetSTUDENT_NOTJOINED(data.id)">Absentees</p>
+        <p class="pointer" (click)="GetEXAM_ADMIN(data.id)">Paper Admin</p>
+        <p class="pointer" (click)="GetSTUDENT_ANSWERED(data.id)">{{data.STUDENT_SUBMITTED}} students answered</p>
     </div>
 </div>
